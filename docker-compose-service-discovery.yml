@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  api-gateway:
+  service-discovery:
     image: ptb.archi-lab.io/service-discovery
     ports:
       - "8761:8761"
