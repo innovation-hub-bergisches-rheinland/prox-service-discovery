@@ -1,14 +1,15 @@
-version: '3'
+version: "3.7"
 
 services:
+
   service-discovery:
-    image: ptb-gp-ss2019.archi-lab.io/service-discovery
+    image: docker.nexus.archi-lab.io/archilab/prox-service-discovery
     ports:
       - "8761:8761"
     restart: always
     networks:
-      - ptb
+      - prox
 
 networks:
-  ptb:
+  prox:
     external: true
