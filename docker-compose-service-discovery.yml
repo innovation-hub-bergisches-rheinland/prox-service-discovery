@@ -4,8 +4,6 @@ services:
 
   service-discovery:
     image: docker.nexus.archi-lab.io/archilab/prox-service-discovery
-    ports:
-      - "8761:8761"
     restart: always
     networks:
       - prox
