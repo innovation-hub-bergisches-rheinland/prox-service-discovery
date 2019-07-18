@@ -118,6 +118,7 @@
         <artifactId>dockerfile-maven-plugin</artifactId>
         <version>${dockerfile-maven.version}</version>
         <configuration>
+          <contextDirectory>${project.basedir}/src/main/docker</contextDirectory>
           <repository>${docker.image.prefix}/${project.artifactId}</repository>
         </configuration>
         <executions>

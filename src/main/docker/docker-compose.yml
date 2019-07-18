@@ -3,7 +3,7 @@ version: "3.6"
 services:
 
   service-discovery:
-    image: docker.nexus.archi-lab.io/archilab/prox-service-discovery
+    image: docker.nexus.archi-lab.io/archilab/${image}:${tag}
     restart: always
     networks:
       - prox
