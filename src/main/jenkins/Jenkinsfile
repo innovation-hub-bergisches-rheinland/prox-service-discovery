@@ -7,17 +7,21 @@ node {
             git branch: 'jenkins-migration'
 
             writeFile file: 'settings.xml', text: "<settings><localRepository>${pwd()}/.m2</localRepository></settings>"
-            sh "mvn -B -s settings.xml -Drevision=${revision} clean deploy"
+
+            docker.withRegistry('https://docker.nexus.archi-lab.io', 'archilab-nexus-jenkins') {
+                sh "mvn -B -s settings.xml -Drevision=${revision} clean deploy"
+            }
         }
     }
 
     stage('Deploy') {
         docker.withServer('tcp://10.10.10.41:2376', 'prox-prod-certs') {
+            def pom = readMavenPom file: 'pom.xml'
+            def image = pom.getArtifactId()
+            def release = pom.getProperties().getProperty('release')
+            def tag = "${release}" + '-' + "${revision}"
+            
             docker.withRegistry('https://docker.nexus.archi-lab.io', 'archilab-nexus-jenkins') {
-                def pom = readMavenPom file: 'pom.xml'
-                def image = pom.getArtifactId()
-                def release = pom.getProperties().getProperty('release')
-                def tag = "${release}" + '-' + "${revision}"
                 sh "env IMAGE=${image} TAG=${tag} docker stack deploy -c src/main/docker/docker-compose.yml ${image}"
             }
         }
