@@ -1,5 +1,5 @@
 node {
-    def revision = $BUILD_NUMBER
+    revision = env.BUILD_NUMBER
 
     stage('Build') {
         docker.image('maven:3.6.1-jdk-8-alpine').inside {
