@@ -7,6 +7,8 @@ services:
     restart: always
     networks:
       - prox
+    env_file:
+      - image-variables.env
 
 networks:
   prox:

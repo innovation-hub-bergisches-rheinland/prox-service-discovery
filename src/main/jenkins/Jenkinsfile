@@ -17,8 +17,8 @@ node {
                 def pom = readMavenPom()
                 def image = pom.getArtifactId()
                 def tag = pom.getVersion().replace('SNAPSHOT', revision)
-                System.setProperty('image', "${image}")
-                System.setProperty('tag', "${tag}")
+                sh 'echo "IMAGE=${image}" > image-variables.env'
+                sh 'echo "TAG=${tag} >> image-variables.env'
                 sh "docker stack deploy -c src/main/docker/docker-compose.yml ${image}"
             }
         }
