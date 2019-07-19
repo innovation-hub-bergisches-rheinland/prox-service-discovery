@@ -9,11 +9,9 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
-    image: docker.nexus.archi-lab.io/archilab/${image}:${tag}
+    image: docker.nexus.archi-lab.io/archilab/${IMAGE}:${TAG}
     networks:
       - prox
-    env_file:
-      - image-variables.env
 
 networks:
   prox:
