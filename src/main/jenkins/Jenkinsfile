@@ -19,7 +19,7 @@ node {
             docker.withRegistry('https://docker.nexus.archi-lab.io', 'archilab-nexus-jenkins') {
                 def image = pom.getArtifactId()
                 def tag = pom.getVersion().replace('SNAPSHOT', revision)
-                writeFile file: 'image-variables.env', text: "IMAGE=${image}\nTAG=${tag}"
+                writeFile file: 'src/main/docker/image-variables.env', text: "IMAGE=${image}\nTAG=${tag}"
                 sh "docker stack deploy -c src/main/docker/docker-compose.yml ${image}"
             }
         }
