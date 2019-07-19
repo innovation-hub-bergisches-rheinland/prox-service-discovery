@@ -3,8 +3,13 @@ version: "3.6"
 services:
 
   service-discovery:
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 120s
     image: docker.nexus.archi-lab.io/archilab/${image}:${tag}
-    restart: always
     networks:
       - prox
     env_file:
