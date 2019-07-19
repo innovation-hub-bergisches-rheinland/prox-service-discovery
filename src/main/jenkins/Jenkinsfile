@@ -16,7 +16,7 @@ node {
             docker.withRegistry('https://docker.nexus.archi-lab.io', 'archilab-nexus-jenkins') {
                 def pom = readMavenPom file: 'pom.xml'
                 def image = pom.getArtifactId()
-                def tag = pom.getVersion()
+                def tag = pom.getProperties('release').concat(':').concat(pom.getProperties('revision'))
                 sh "env IMAGE=${image} TAG=${tag} docker stack deploy -c src/main/docker/docker-compose.yml ${image}"
             }
         }
