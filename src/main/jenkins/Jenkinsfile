@@ -17,7 +17,7 @@ node {
                 def pom = readMavenPom file: 'pom.xml'
                 def image = pom.getArtifactId()
                 def release = pom.getProperties().getProperty('release')
-                def tag = release.concat(':').concat("${revision}")
+                def tag = release.concat('-').concat("${revision}")
                 sh "env IMAGE=${image} TAG=${tag} docker stack deploy -c src/main/docker/docker-compose.yml ${image}"
             }
         }
