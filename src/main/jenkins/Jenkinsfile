@@ -3,7 +3,7 @@ node {
 
     stage('Build') {
         docker.withRegistry('https://docker.nexus.archi-lab.io', 'archilab-nexus-jenkins') {
-            docker.image('maven:3.6.1-jdk-8-alpine').inside('-v $HOME/.m2:/root/.m2 -v $HOME/.docker:/root/.docker') {
+            docker.image('maven:3.6.1-jdk-8-alpine').inside('-v /root/.m2:/root/.m2 -v /root/.docker:/root/.docker') {
                 git url: 'https://github.com/Archi-Lab/prox-service-discovery.git'
                 git branch: 'jenkins-migration'
 
