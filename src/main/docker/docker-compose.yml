@@ -3,13 +3,6 @@ version: "3.6"
 services:
 
   service-discovery:
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: any
-        delay: 5s
-        max_attempts: 3
-        window: 120s
     image: docker.nexus.archi-lab.io/archilab/${IMAGE}:${TAG}
     networks:
       - prox
