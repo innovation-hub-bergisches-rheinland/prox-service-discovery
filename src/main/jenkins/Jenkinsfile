@@ -2,7 +2,7 @@ node {
     def revision = "dev-${env.BUILD_NUMBER}"
 
     stage('Checkout') {
-        scm checkout
+        checkout scm
     }
 
     stage('Build') {
