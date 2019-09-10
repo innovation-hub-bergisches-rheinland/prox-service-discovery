@@ -20,11 +20,11 @@ node {
 
         def pom = readMavenPom()
 
-        revision = pom getProperties() getProperty 'revision'
+        revision = pom.getProperties().getProperty('revision')
         changelist = tagPrefix + '-' + env.BUILD_NUMBER
 
-        repository = pom getProperties() getProperty 'docker.image.prefix'
-        image = pom getArtifactId()
+        repository = pom.getProperties().getProperty('docker.image.prefix')
+        image = pom.getArtifactId()
         tag = revision + changelist
     }
 
