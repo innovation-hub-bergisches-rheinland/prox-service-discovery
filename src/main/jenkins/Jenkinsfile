@@ -8,16 +8,10 @@ node {
 
     def server = 'tcp://10.10.10.42:2376'
     def certs = 'prox-dev-certs'
+    def tagPrefix = '-dev'
 
     stage('Checkout') {
         checkout scm
-
-        def tagPrefix = ''
-        sh "git rev-parse --abbrev-ref HEAD > branch"
-        def branch = readFile 'branch' trim()
-        if (branch != 'master') {
-            tagPrefix = '-' + branch
-        }
 
         def pom = readMavenPom()
 
