@@ -13,7 +13,7 @@ node {
         checkout scm
 
         def tagPrefix = ''
-        sh 'git rev - parse-- abbrev -ref HEAD > branch'
+        sh 'git rev-parse --abbrev-ref HEAD > branch'
         def branch = readFile 'branch' trim()
         if (branch != 'master') {
             tagPrefix = '-' + branch
