@@ -8,7 +8,7 @@
     <version>2.2.5.RELEASE</version>
   </parent>
 
-  <groupId>io.archi-lab.prox</groupId>
+  <groupId>de.innovation-hub.prox</groupId>
   <artifactId>prox-service-discovery</artifactId>
   <version>${revision}${changelist}</version>
 
