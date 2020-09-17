@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package io.archilab.prox.servicediscovery;
+package de.innovationhub.prox.servicediscovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,6 +35,4 @@ public class ServiceDiscovery {
   public static void main(String[] args) {
     SpringApplication.run(ServiceDiscovery.class, args);
   }
-
 }
-
