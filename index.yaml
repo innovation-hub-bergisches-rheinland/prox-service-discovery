@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   prox-service-discovery:
   - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2022-01-14T14:40:07.714765904Z"
+    description: A Helm chart for Kubernetes
+    digest: be45082d7ae3f2b808a11a1feff044f12764620d91e04658178bb3fd3e1b0052
+    name: prox-service-discovery
+    type: application
+    urls:
+    - https://innovation-hub-bergisches-rheinland.github.io/prox-service-discovery/prox-service-discovery-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     appVersion: 1.0.0
     created: "2021-12-11T18:30:29.742478285Z"
     description: A Helm chart for Kubernetes
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://innovation-hub-bergisches-rheinland.github.io/prox-service-discovery/prox-service-discovery-1.0.0.tgz
     version: 1.0.0
-generated: "2021-12-11T18:30:29.741812192Z"
+generated: "2022-01-14T14:40:07.713989436Z"
