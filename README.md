@@ -1,3 +1,7 @@
+# ⚠️ Deprecation Info
+
+We do not rely on Eureka anymore as PROX is deployed into k8s which has built-in capabilities for service-discovery-like tasks using e.g. plain DNS.
+
 # Prox Service Discovery
 
 The purpose of this service is to provide a service discovery where clients can register themselves
